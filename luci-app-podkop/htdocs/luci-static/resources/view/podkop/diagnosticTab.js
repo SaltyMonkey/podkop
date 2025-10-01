@@ -322,7 +322,7 @@ function showConfigModal(command, title) {
         let formattedOutput = '';
 
         if (command === 'global_check') {
-            safeExec('/usr/bin/podkop', [command], 'P0_PRIORITY', res => {
+            safeExec('/usr/bin/podkop', [command, constants.PODKOP_LUCI_APP_VERSION], 'P0_PRIORITY', res => {
                 formattedOutput = formatDiagnosticOutput(res.stdout || _('No output'));
 
                 try {
